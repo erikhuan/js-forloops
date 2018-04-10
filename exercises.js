@@ -121,7 +121,14 @@ Declare a variable named `topQuote` and assign it to a String value of your favo
 Write a function that will iterate through the string value and return the longest word in that quote. Console.log your result.
 */
 
-
+var topQuote = "Omae wa mou shindeiru.".split(' ');
+var longest = "";
+for (var i = 0; i < topQuote.length; i++) {
+    if (topQuote[i].length > longest.length) {
+        longest = topQuote[i];
+    }
+}
+console.log(longest);
 
 /* 12) Puppet Master
 Declare a variable named `miscStorage` set it's value to be: `[ [], 'Carrots', 9, 'Beets', {}, {name: "Todd B."}, 'Mush' ]`
@@ -132,7 +139,29 @@ Write a function named `generateArrayOfStrings` which takes a single argument `s
 
 */
 
+var miscStorage = [[], 'Carrots', 9, 'Beets', {}, { name: "Todd B." }, 'Mush']
+/*
+function generateArrayOfStrings(storage) {
+    for (var i = 0; i < storage.length; i++) {
+        if (typeof storage[i] !== typeof "") {
+            storage.splice(i, 1);
+        }
+    }
+    return storage;
+}*/
 
+function generateArrayOfStrings2(storage) {
+    var stringArray = [];
+    for (var i = 0; i < storage.length; i++) {
+        if (typeof storage[i] === typeof "") {
+            stringArray.push(storage[i]);
+        }
+    }
+    return stringArray;
+}
+
+//console.log(generateArrayOfStrings(miscStorage));
+console.log(generateArrayOfStrings2(miscStorage));
 
 /* 13) All Grown Up 
 Write a function that will capitalize the first letter in each word in the phrase below. The function will console.log the message: "I've Lived A Life That's Full. I've Traveled Each And Every Highway. But More, Much More Than This. I Did It My Way."  
